@@ -1,0 +1,2 @@
+include AMOFMS/DSGPM_TP_MARTINI2/model/best_epoch.pth
+include AMOFMS/tools/force_field/*
