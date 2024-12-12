@@ -13,7 +13,7 @@ setup(
     author="Zhixuan Zhong",
     author_email="zhixuan@iccas.ac.cn",
     description="AMOFMS: an Automated Mapping and Optimization Framework for Multiscale Simulation",
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     long_description_content_type='text/markdown',
     url="https://github.com/Dropletsimuli/AMOFMS",
     license="MIT",
