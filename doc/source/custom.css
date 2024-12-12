@@ -1,0 +1,6 @@
+/* 调整 logo 图片的大小 */
+.logo img {
+    height: 10px; /* 或者你希望的高度 */
+    width: auto; /* 保持宽高比 */
+}
+
