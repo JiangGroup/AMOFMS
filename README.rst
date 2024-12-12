@@ -94,7 +94,7 @@ BibTeX entry:
       year = {2024},
       publisher = {GitHub},
       journal = {GitHub repository},
-      howpublished = {\\url{https://github.com/dropletsimuli/amofms}},
+      url = {{https://github.com/JiangGroup/amofms}},
       version = {0.1.0}
     }
 
@@ -106,5 +106,5 @@ Full documentation
 ==================
 
 Head to `amofms.readthedocs.io <https://amofms.readthedocs.io/en/stable/>`__, where you will find the full
-documentation of **lipyphilic**'s API as well as examples of how to use the analysis tools.
+documentation of **AMOFMS**'s API as well as examples of how to use the analysis tools.
 
