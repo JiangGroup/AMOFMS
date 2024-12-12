@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MappingItem &mdash; AMOFMS 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1165ae04" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CGForceFieldParameters" href="../CGForceFieldParameters.html" />
+    <link rel="prev" title="FGMappingToCG" href="../FGMappingToCG.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            AMOFMS
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../API.html">Python API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../FGMappingToCG.html">FGMappingToCG</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MappingItem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-usage">Example Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mappingtocgfromdsgpm-tp">MappingToCGfromDSGPM_TP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Example Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CGForceFieldParameters.html">CGForceFieldParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CGPropertiesFromFGSimulation.html">CGPropertiesFromFGSimulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ObjectiveFunction.html">ObjectiveFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changlog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_amofms.html">About AMOFMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">AMOFMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../API.html">Python API</a></li>
+          <li class="breadcrumb-item"><a href="../FGMappingToCG.html">FGMappingToCG</a></li>
+      <li class="breadcrumb-item active">MappingItem</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/FGMappingToCG/FGMappingToCG.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mappingitem">
+<h1>MappingItem<a class="headerlink" href="#mappingitem" title="Link to this heading"></a></h1>
+<p>Represents a mapping item for converting a fine-grained (FG) molecule to a coarse-grained (CG) model, facilitating the transition from detailed molecular structures to simplified representations for computational efficiency.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">smiles</span></code> (str): The SMILES representation of the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mol_name</span></code> (str, optional): An optional name for the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_model</span></code> (str): The name of the coarse-grained model being applied.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_groups</span></code> (list of lists, optional): A list where each sublist specifies the atoms that make up each coarse-grained group within the model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_group_id</span></code> (list, optional): A list of identifiers for each coarse-grained group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_group_type</span></code> (list, optional): A list indicating the type of each coarse-grained group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_cg_bead</span></code> (int): The total number of coarse-grained beads or groups into which the molecule has been simplified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mol</span></code> (RDKit Mol object): An RDKit molecule object created from the SMILES string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_atom</span></code> (int): The total number of atoms in the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_element</span></code> (list, optional): A list containing the element type of each atom in the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_group_mass</span></code> (list): A list of calculated masses for each coarse-grained group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_bond</span></code> (list): A list describing the bonds between coarse-grained groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_angle</span></code> (set): A set of angles between coarse-grained groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_dihedral</span></code> (set): A set of dihedral angles involving coarse-grained groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_cg_group_id</span></code> (list): A list mapping each atom to its corresponding coarse-grained group ID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_coord_matrix</span></code> (np.ndarray, optional): An array of coordinates for each atom in the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_coord_matrix</span></code> (np.ndarray, optional): An array of coordinates for each coarse-grained bead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_charge</span></code> (list): A list of charges for each coarse-grained group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_dicts</span></code> (list): A list of additional coarse-grained properties.</p></li>
+</ul>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">smiles,</span> <span class="pre">mol_name=None,</span> <span class="pre">cgmodel='MARTINI2',</span> <span class="pre">cg_groups=None,</span> <span class="pre">cg_group_id=None,</span> <span class="pre">cg_group_type=None,</span> <span class="pre">atom_element=None)</span></code>:</dt><dd><p>Initializes the MappingItem with molecular information and prepares the CG model setup.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set_cg_groups(self,</span> <span class="pre">cg_groups)</span></code>:</dt><dd><p>Sets the CG groups for the molecule, organizing atoms into simplified representations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set_cg_group_id(self,</span> <span class="pre">cg_group_id)</span></code>:</dt><dd><p>Assigns identifiers to each CG group, facilitating their manipulation and analysis.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set_cg_group_type(self,</span> <span class="pre">cg_group_type)</span></code>:</dt><dd><p>Defines the type for each CG group, which may influence their interactions in simulations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">check_cg_groups_id_type_match(self)</span></code>:</dt><dd><p>Ensures consistency among CG groups, their identifiers, and types, verifying the integrity of the mapping.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_cg_group_mass(self)</span></code>:</dt><dd><p>Calculates the mass of each CG group based on its constituent atoms, essential for dynamics simulations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_atom_group_cg_id(self)</span></code>:</dt><dd><p>Establishes a mapping from each atom to its corresponding CG group, bridging detailed and simplified models.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_cg_bond(self,</span> <span class="pre">edges)</span></code>:</dt><dd><p>Determines the bonds between CG groups, constructing the simplified model’s structural framework.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">are_connected(self,</span> <span class="pre">atom1,</span> <span class="pre">atom2)</span></code>:</dt><dd><p>Checks if two atoms are connected within the CG model, aiding in structural analysis.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_cg_angle(self)</span></code>:</dt><dd><p>Identifies angles formed between CG groups, important for maintaining molecular geometry.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_cg_dihedral(self)</span></code>:</dt><dd><p>Finds dihedral angles involving CG groups, crucial for understanding conformational properties.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set_cg_charge(self,</span> <span class="pre">charge_list)</span></code>:</dt><dd><p>Assigns charges to CG groups, a key factor in modeling electrostatic interactions.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set_cg_mass(self,</span> <span class="pre">mass_list)</span></code>:</dt><dd><p>Specifies the mass for each CG group, influencing the molecule’s dynamics.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_atom_coords_from_smiles(self)</span></code>:</dt><dd><p>Derives atom coordinates from the SMILES representation, providing spatial information for the molecule.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compute_cg_coords(self,</span> <span class="pre">method='mass</span> <span class="pre">center')</span></code>:</dt><dd><p>Calculates the coordinates of CG beads, offering a simplified spatial representation of the molecule.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">save_atom_coords_file(self,</span> <span class="pre">output='./molecule.pdb')</span></code>:</dt><dd><p>Saves the molecule’s atom coordinates to a file, supporting various formats for further analysis or visualization.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<p>Create a MappingItem instance for a molecule with a given SMILES representation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">AMOFMS</span> <span class="kn">import</span> <span class="n">MappingItem</span>
+
+<span class="c1"># Define the molecule&#39;s SMILES representation</span>
+<span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;CCCCC&#39;</span>
+<span class="c1"># Create a MappingItem instance</span>
+<span class="n">mapping_item</span> <span class="o">=</span> <span class="n">MappingItem</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+
+<span class="c1"># Access the attributes and methods of the MappingItem instance</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mapping_item</span><span class="o">.</span><span class="n">smiles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mapping_item</span><span class="o">.</span><span class="n">num_atom</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mappingtocgfromdsgpm-tp">
+<span id="id1"></span><h1>MappingToCGfromDSGPM_TP<a class="headerlink" href="#mappingtocgfromdsgpm-tp" title="Link to this heading"></a></h1>
+<p>Facilitates the conversion of a molecule from a detailed structural representation to a specified coarse-grained (CG) model using Deep Supervised Graph Partitioning Model with Type Prediction Enhancement (DSGPM-TP).</p>
+<section id="id2">
+<h2>Attributes<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CGmodel</span></code> (str): The coarse-grained model to apply.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smiles</span></code> (str): The SMILES string of the molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CG_num_bead</span></code> (int): The desired number of coarse-grained beads in the final model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_dir</span></code> (str): The directory where output files will be saved.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mol_json</span></code> (dict): A JSON-like dictionary containing the resulting CG structure information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mol_name</span></code> (str, optional): An optional name for the molecule.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>Methods<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">CG_num_bead,</span> <span class="pre">CGmodel='MARTINI2',</span> <span class="pre">mol_name=None,</span> <span class="pre">mol_form='sml',</span> <span class="pre">smiles=None,</span> <span class="pre">pdb_file=None,</span> <span class="pre">output_dir='./Mapping')</span></code>:</dt><dd><p>Initializes the mapping process, setting up the target CG model, molecular structure, and output specifications.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">get_mapping_item(self)</span></code>:</dt><dd><p>Returns the MappingItem instance created during the initialization.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h2>Example Usage<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>Convert a molecule from a detailed structural representation to a coarse-grained model using MappingToCGfromDSGPM_TP:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AMOFMS</span> <span class="kn">import</span> <span class="n">MappingToCGfromDSGPM_TP</span>
+
+<span class="c1"># Define the SMILES representation of the molecule</span>
+<span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;CCCCC&#39;</span>
+<span class="c1"># Define the number of coarse-grained beads</span>
+<span class="n">num_bead</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># Create a MappingToCGfromDSGPM_TP instance</span>
+<span class="n">mol_mapping</span> <span class="o">=</span> <span class="n">MappingToCGfromDSGPM_TP</span><span class="p">(</span><span class="n">CG_num_bead</span><span class="o">=</span><span class="n">num_bead</span><span class="p">,</span> <span class="n">smiles</span><span class="o">=</span><span class="n">smiles</span><span class="p">)</span>
+<span class="c1"># Get the MappingItem instance for further analysis</span>
+<span class="n">mapping_item</span> <span class="o">=</span> <span class="n">mol_mapping</span><span class="o">.</span><span class="n">get_mapping_item</span><span class="p">()</span>
+
+<span class="c1"># Access the attributes and methods of the MappingItem instance</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mapping_item</span><span class="o">.</span><span class="n">cg_groups</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mapping_item</span><span class="o">.</span><span class="n">cg_bond</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../FGMappingToCG.html" class="btn btn-neutral float-left" title="FGMappingToCG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../CGForceFieldParameters.html" class="btn btn-neutral float-right" title="CGForceFieldParameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jiang Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

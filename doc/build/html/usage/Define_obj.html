@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Define Objective Function &mdash; AMOFMS 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1165ae04" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Select Optimizer" href="Select_optimizer.html" />
+    <link rel="prev" title="3. Identify Parameters for Optimization" href="Identify_parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AMOFMS
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../usage.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Determine_CGFF.html">1. Determine Coarse-Grained Force Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mapping.html">2. Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Identify_parameters.html">3. Identify Parameters for Optimization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Define Objective Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Select_optimizer.html">5. Select Optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Run.html">6. Run Optimization and Save Log</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changlog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_amofms.html">About AMOFMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AMOFMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../usage.html">Usage Guide</a></li>
+      <li class="breadcrumb-item active">4. Define Objective Function</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/Define_obj.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="define-objective-function">
+<h1>4. Define Objective Function<a class="headerlink" href="#define-objective-function" title="Link to this heading"></a></h1>
+<p>Define the objective function for optimization. The Bottom-Up approach currently provides average potential force (Boltzmann inversion of radial distribution function g(r)) and force matching error calculations in <a class="reference internal" href="../api/ObjectiveFunction/ObjectiveFunction.html#bottomupobjectivefunction"><span class="std std-ref">BottomUpObjectiveFunction</span></a>. The Top-Down approach provides density calculations, among others, available in the <strong>tools.properties</strong> module. Users can also define custom objective functions and calculation methods, including weights for each component of the total loss function.</p>
+<p>Example of Objective Function (Loss Function) for <a class="reference internal" href="../api/Optimization/PSO.html#particleswarmoptimizer"><span class="std std-ref">ParticleSwarmOptimizer</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">opt_loss_function</span><span class="p">(</span><span class="n">particle</span><span class="p">:</span> <span class="n">Particle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function computes the loss for a given particle in the optimization process using Particle Swarm Optimization (PSO).</span>
+<span class="sd">    The loss is calculated based on Boltzmann inversion of potential energy and membrane properties (area per lipid, membrane thickness, and bending modulus).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - particle (Particle): An object representing a particle in the PSO process. `particle.position` is an array representing a set of parameters for the current iteration.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - total_loss (float): The total computed loss for the given particle.</span>
+<span class="sd">    - each_term_loss (dict): A dictionary containing the loss for each individual term (Ur, apl, thickness, and ka).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">-iter:  </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">-th particle processing...&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Unpack the particle&#39;s position (parameters) to update the system topology</span>
+    <span class="n">new_topology</span> <span class="o">=</span> <span class="n">opt_para</span><span class="o">.</span><span class="n">unpack_updated_parameters_to_top</span><span class="p">(</span><span class="n">updated_parameters_array</span><span class="o">=</span><span class="n">particle</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+
+    <span class="c1"># Define folder paths for storing iteration results</span>
+    <span class="n">iter_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opt_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;iters/iter_</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">idx_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iter_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Update the system topology and optimization folder for the bottom-up object</span>
+    <span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">update_system_topology</span><span class="p">(</span><span class="n">new_system_top</span><span class="o">=</span><span class="n">new_topology</span><span class="p">)</span>
+    <span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">update_opt_folder</span><span class="p">(</span><span class="n">new_opt_folder</span><span class="o">=</span><span class="n">idx_folder</span><span class="p">)</span>
+
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">each_term_loss</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Compute the Boltzmann inversion loss</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Computing Ur Boltzmann inversion loss...&#39;</span><span class="p">)</span>
+    <span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">run_cg_simulation</span><span class="p">(</span>
+        <span class="n">initial_gro</span><span class="o">=</span><span class="n">initial_gro</span><span class="p">,</span>
+        <span class="n">fg_resname_list</span><span class="o">=</span><span class="n">resname_cg_from_fg_coord</span><span class="p">,</span>
+        <span class="n">mdp_folder</span><span class="o">=</span><span class="n">mdp_folder</span><span class="p">,</span>
+        <span class="n">index_file</span><span class="o">=</span><span class="n">index_file</span><span class="p">,</span>
+        <span class="n">table_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">cg_simulation_folder</span><span class="o">=</span><span class="n">idx_folder</span><span class="p">,</span>
+        <span class="n">em</span><span class="o">=</span><span class="n">run_em</span><span class="p">,</span>
+        <span class="n">em_double_version</span><span class="o">=</span><span class="n">em_double</span><span class="p">,</span>
+        <span class="n">anneal</span><span class="o">=</span><span class="n">run_anneal</span><span class="p">,</span>
+        <span class="n">gpu_acceleration</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">eq</span><span class="o">=</span><span class="n">run_eq</span><span class="p">,</span>
+        <span class="n">prod</span><span class="o">=</span><span class="n">run_prod</span><span class="p">,</span>
+        <span class="n">nt</span><span class="o">=</span><span class="n">cpu_nt</span><span class="p">,</span>
+        <span class="n">gpu_id</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculate the coarse-grained pair potentials using Boltzmann inversion</span>
+    <span class="n">cg_pair_Ur_list</span> <span class="o">=</span> <span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">Boltzmann_inversion</span><span class="p">(</span>
+        <span class="n">rdf_pairs_list</span><span class="o">=</span><span class="n">cg_rdf_pairs_list</span><span class="p">,</span>
+        <span class="n">tag</span><span class="o">=</span><span class="s1">&#39;cg&#39;</span><span class="p">,</span>
+        <span class="n">Temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">,</span>
+        <span class="n">bin_width</span><span class="o">=</span><span class="n">rdf_binwidth</span><span class="p">,</span>
+        <span class="n">max_distance</span><span class="o">=</span><span class="n">rdf_cutoff</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculate the loss based on the difference between fine-grained and coarse-grained pair potentials</span>
+    <span class="n">Ur_loss</span> <span class="o">=</span> <span class="n">Ur_loss_ratio</span> <span class="o">*</span> <span class="n">square_diff_of_elements_in_2D_list</span><span class="p">(</span><span class="n">list1</span><span class="o">=</span><span class="n">fg_pair_Ur_list</span><span class="p">,</span> <span class="n">list2</span><span class="o">=</span><span class="n">cg_pair_Ur_list</span><span class="p">)</span>
+    <span class="n">each_term_loss</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;Ur&#39;</span><span class="p">:</span> <span class="n">Ur_loss</span><span class="p">})</span>
+    <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">Ur_loss</span>
+
+    <span class="c1"># Compute the membrane properties loss</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Computing membrane properties...&#39;</span><span class="p">)</span>
+    <span class="n">mem</span> <span class="o">=</span> <span class="n">MembraneProperties</span><span class="p">(</span>
+        <span class="n">topology</span><span class="o">=</span><span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">cg_topology</span><span class="p">,</span>
+        <span class="n">trajectory</span><span class="o">=</span><span class="n">bottom_up_obj</span><span class="o">.</span><span class="n">cg_trajectory</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculate area per lipid, membrane thickness, and bending modulus</span>
+    <span class="n">cg_apl</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">compute_apl</span><span class="p">(</span><span class="n">headgroup_selection</span><span class="o">=</span><span class="n">head_group_expression</span><span class="p">)</span>
+    <span class="n">cg_thickness</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">compute_membrane_thickness</span><span class="p">(</span><span class="n">headgroup_selection</span><span class="o">=</span><span class="n">head_group_expression</span><span class="p">)</span>
+    <span class="n">cg_ka</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">compute_Ka</span><span class="p">(</span><span class="n">head_group_expression</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">-iter </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">-th particle APL (Angstrom**-2): </span><span class="se">\n</span><span class="s1">exp: </span><span class="si">{</span><span class="n">exp_apl</span><span class="si">}</span><span class="s1"> cg: </span><span class="si">{</span><span class="n">cg_apl</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">-iter </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">-th particle Thickness (Angstrom): </span><span class="se">\n</span><span class="s1">exp: </span><span class="si">{</span><span class="n">exp_thickness</span><span class="si">}</span><span class="s1"> cg: </span><span class="si">{</span><span class="n">cg_thickness</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">-iter </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">-th particle Ka (mN/m): </span><span class="se">\n</span><span class="s1">exp: </span><span class="si">{</span><span class="n">exp_ka</span><span class="si">}</span><span class="s1"> cg: </span><span class="si">{</span><span class="n">cg_ka</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the loss for each membrane property</span>
+    <span class="n">apl_loss</span> <span class="o">=</span> <span class="n">apl_loss_ratio</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exp_apl</span> <span class="o">-</span> <span class="n">cg_apl</span><span class="p">)</span>  <span class="c1"># https://doi.org/10.1021/acs.jpcb.6b01870</span>
+    <span class="n">thickness_loss</span> <span class="o">=</span> <span class="n">thickness_loss_ratio</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exp_thickness</span> <span class="o">-</span> <span class="n">cg_thickness</span><span class="p">)</span>  <span class="c1"># https://doi.org/10.1063/1.4936909</span>
+    <span class="n">ka_loss</span> <span class="o">=</span> <span class="n">ka_loss_ratio</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exp_ka</span> <span class="o">-</span> <span class="n">cg_ka</span><span class="p">)</span>
+
+    <span class="n">each_term_loss</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;apl&#39;</span><span class="p">:</span> <span class="n">apl_loss</span><span class="p">})</span>
+    <span class="n">each_term_loss</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;thickness&#39;</span><span class="p">:</span> <span class="n">thickness_loss</span><span class="p">})</span>
+    <span class="n">each_term_loss</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;ka&#39;</span><span class="p">:</span> <span class="n">ka_loss</span><span class="p">})</span>
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="n">total_loss</span> <span class="o">+</span> <span class="n">apl_loss</span> <span class="o">+</span> <span class="n">thickness_loss</span> <span class="o">+</span> <span class="n">ka_loss</span>
+
+    <span class="c1"># Write the results to a temporary file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp_result</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="n">Ur_loss</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="n">cg_apl</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="n">cg_thickness</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">cg_ka</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">iter</span><span class="si">}</span><span class="s1">-iter:  </span><span class="si">{</span><span class="n">particle</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s1">-th particle Done!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total_loss</span><span class="p">,</span> <span class="n">each_term_loss</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p><strong>Boltzmann Inversion</strong>: The Boltzmann inversion method is used to derive a potential of mean force (PMF) from the radial distribution function (RDF) ( g(r) ). The relationship is given by:</p>
+<div class="math notranslate nohighlight">
+\[\Delta U(r) = \left\| U(r)^{\text{CG}}  - U(r)^{\text{AA}}\right\|;\quad
+U(r) = -k_B T \ln g(r)\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}U(r) \quad &amp;\text{is the potential of mean force at distance} \ r;\\
+k_B \quad &amp;\text{is the Boltzmann constant}; \\
+T \quad &amp;\text{is the temperature}; \\
+g(r) \quad &amp;\text{is the radial distribution function}.\end{split}\]</div>
+<p><strong>Force Matching</strong>: The force matching method involves comparing the forces from a coarse-grained (CG) model to those from an atomistic model. The force matching error is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\Delta F = \sum_{i=1}^{N} \left\| \mathbf{F}_i^{\text{CG}} - \mathbf{F}_i^{\text{AA}} \right\|\]</div>
+<p>where:</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Delta F \quad &amp;\text{is the force matching error}; \\
+\mathbf{F}_i^{\text{CG}} \quad &amp;\text{is the force on CG group} \quad i \quad \text{in the CG model}; \\
+\mathbf{F}_i^{\text{AA}} \quad &amp;\text{is the force on CG group} \quad i \quad \text{in the atomistic model}; \\
+N \quad &amp;\text{is the number of particles}.\end{split}\]</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Identify_parameters.html" class="btn btn-neutral float-left" title="3. Identify Parameters for Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Select_optimizer.html" class="btn btn-neutral float-right" title="5. Select Optimizer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jiang Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

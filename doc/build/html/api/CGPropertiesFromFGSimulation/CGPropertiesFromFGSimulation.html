@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeCGPropertiesFromFGSimulation &mdash; AMOFMS 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1165ae04" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ObjectiveFunction" href="../ObjectiveFunction.html" />
+    <link rel="prev" title="CGPropertiesFromFGSimulation" href="../CGPropertiesFromFGSimulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            AMOFMS
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Example</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../API.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../FGMappingToCG.html">FGMappingToCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CGForceFieldParameters.html">CGForceFieldParameters</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../CGPropertiesFromFGSimulation.html">CGPropertiesFromFGSimulation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputeCGPropertiesFromFGSimulation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-usage">Example Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#wrap-coordinates"><code class="xref py py-func docutils literal notranslate"><span class="pre">wrap_coordinates()</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extrat-cg-force-all"><code class="xref py py-func docutils literal notranslate"><span class="pre">extrat_cg_force_all()</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#computecgpropertiesfromfgsimulation-all"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputeCGPropertiesFromFGSimulation_All</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Example Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ObjectiveFunction.html">ObjectiveFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changlog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_amofms.html">About AMOFMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">AMOFMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../API.html">Python API</a></li>
+          <li class="breadcrumb-item"><a href="../CGPropertiesFromFGSimulation.html">CGPropertiesFromFGSimulation</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputeCGPropertiesFromFGSimulation</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/CGPropertiesFromFGSimulation/CGPropertiesFromFGSimulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computecgpropertiesfromfgsimulation">
+<h1><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputeCGPropertiesFromFGSimulation</span></code><a class="headerlink" href="#computecgpropertiesfromfgsimulation" title="Link to this heading"></a></h1>
+<p>A module for computing Coarse-Grained (CG) properties from Fine-Grained (FG) simulation data.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topology</span></code> (str): Path to the topology file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trajectory</span></code> (str): Path to the trajectory file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cg_groups</span></code> (dict, optional): Definition of CG groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_num</span></code> (int, optional): Number of atoms per molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mol_num</span></code> (int, optional): Number of molecules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">residue_name</span></code> (str, optional): Name of the residue to select atoms from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">universe</span></code> (MDAnalysis.Universe): The Universe object containing loaded simulation data.</p></li>
+</ul>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">topology,</span> <span class="pre">trajectory,</span> <span class="pre">begin_frame_id=None,</span> <span class="pre">end_frame_id=None,</span> <span class="pre">skip_frames=None)</span></code>: Constructor to initialize the ComputeCGPropertiesFromFGSimultion class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_cg_groups(self,</span> <span class="pre">cg_groups,</span> <span class="pre">atom_num,</span> <span class="pre">mol_num,</span> <span class="pre">residue_name)</span></code>: Sets the CG groups and related properties for analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extract_atoms_by_residue(self)</span></code>: Extracts atoms by residue name from the loaded simulation data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_centroid(self,</span> <span class="pre">atom_group)</span></code>: Computes the centroid (center of mass) of a given atom group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_cg_bond_distribution(self,</span> <span class="pre">group1,</span> <span class="pre">group2)</span></code>: Computes the distribution of distances between centroids of two CG groups across the trajectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_cg_angle_distribution(self,</span> <span class="pre">group1,</span> <span class="pre">group2,</span> <span class="pre">group3)</span></code>: Computes the distribution of angles formed by centroids of three CG groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_cg_dihedral_distribution(self,</span> <span class="pre">group1,</span> <span class="pre">group2,</span> <span class="pre">group3,</span> <span class="pre">group4)</span></code>: Computes the distribution of dihedrals formed by centroids of four CG groups.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_distribution(self,</span> <span class="pre">data,</span> <span class="pre">title,</span> <span class="pre">xlabel,</span> <span class="pre">ylabel)</span></code>: Plots the distribution of a given data set using matplotlib.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_fg_group_force(self,</span> <span class="pre">fg_groups)</span></code>: Computes forces on FG groups mapped to CG groups.</p></li>
+</ul>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<p>This example demonstrates how to use the ComputeCGPropertiesFromFGSimulation module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AMOFMS</span> <span class="kn">import</span> <span class="n">ComputeCGPropertiesFromFGSimulation</span>
+
+<span class="c1"># Define paths to trajectory and topology files</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="s1">&#39;/path/to/trajectory.trr&#39;</span>
+<span class="n">top</span> <span class="o">=</span> <span class="s1">&#39;/path/to/topology.tpr&#39;</span>
+
+<span class="c1"># Define system properties</span>
+<span class="n">system</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;molecules&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;mol_name&#39;</span><span class="p">:</span> <span class="s1">&#39;12oh&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;charge&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">57.1146</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">59.0869</span><span class="p">],</span>
+         <span class="s1">&#39;aa_groups&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">]],</span>
+         <span class="s1">&#39;lj_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span>
+                           <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+         <span class="s1">&#39;bond_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">]},</span>
+         <span class="s1">&#39;angle_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">]},</span> <span class="s1">&#39;num_mols&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mol_name&#39;</span><span class="p">:</span> <span class="s1">&#39;16oh&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;charge&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">57.1146</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">59.0869</span><span class="p">],</span>
+         <span class="s1">&#39;aa_groups&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">47</span><span class="p">]],</span>
+         <span class="s1">&#39;lj_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span>
+                           <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+         <span class="s1">&#39;bond_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">]},</span>
+         <span class="s1">&#39;angle_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">]},</span> <span class="s1">&#39;num_mols&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;lj_cross_terms&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+    <span class="s1">&#39;cgmodel&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Create an instance of the analyzer</span>
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">ComputeCGPropertiesFromFGSimulation</span><span class="p">(</span><span class="n">topology</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">=</span><span class="n">traj</span><span class="p">)</span>
+
+<span class="c1"># Set CG groups and related properties</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">set_cg_groups</span><span class="p">(</span><span class="n">atom_num</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">mol_num</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cg_groups</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span> <span class="n">residue_name</span><span class="o">=</span><span class="s1">&#39;12oh&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute bond distribution between CG groups 0 and 1</span>
+<span class="n">distances_per_frame</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">compute_cg_bond_distribution</span><span class="p">(</span><span class="n">group1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">group2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute angle distribution between CG groups 0, 1, and 2</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">compute_cg_angle_distribution</span><span class="p">(</span><span class="n">group1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">group2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">group3</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Compute dihedral distribution between CG groups 0, 1, 2, and 3</span>
+<span class="n">dihedral</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">compute_cg_dihedral_distribution</span><span class="p">(</span><span class="n">group1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">group2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">group3</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">group4</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="wrap-coordinates">
+<h1><code class="xref py py-func docutils literal notranslate"><span class="pre">wrap_coordinates()</span></code><a class="headerlink" href="#wrap-coordinates" title="Link to this heading"></a></h1>
+<p>Wraps coordinates within the boundaries of the simulation box.</p>
+<p>This function ensures that coordinates are wrapped back into the simulation box, which is essential for periodic boundary conditions. It is applicable for rectangular simulation boxes.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coord</span></code> (np.ndarray): The coordinates to be wrapped. Can be a single set of coordinates or an array of coordinates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dimensions</span></code> (np.ndarray): The dimensions of the simulation box, typically in the form [Lx, Ly, Lz], where Lx, Ly, and Lz are the lengths of the simulation box along the x, y, and z axes, respectively.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<p>np.ndarray: The wrapped coordinates, ensuring all points are within the simulation box boundaries.</p>
+</section>
+</section>
+<section id="extrat-cg-force-all">
+<h1><code class="xref py py-func docutils literal notranslate"><span class="pre">extrat_cg_force_all()</span></code><a class="headerlink" href="#extrat-cg-force-all" title="Link to this heading"></a></h1>
+<p>Extracts the forces acting on all Coarse-Grained (CG) groups within the system for a specified frame.</p>
+<p>This function iterates over all molecules described in the system topology, selecting specific residues based on the provided names, and then computes the total force acting on each CG group within those molecules.</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topology</span></code> (str): The path to the topology file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trajectory</span></code> (str): The path to the trajectory file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">system_top</span></code> (dict): A dictionary representing the system’s topology, including molecules and their properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frame_id</span></code> (int, optional): The frame index at which to compute the forces. Default is 0.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Returns<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>dict: A dictionary with molecule names as keys and numpy arrays of forces (for each CG group in those molecules) as values.</p>
+</section>
+</section>
+<section id="computecgpropertiesfromfgsimulation-all">
+<h1><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputeCGPropertiesFromFGSimulation_All</span></code><a class="headerlink" href="#computecgpropertiesfromfgsimulation-all" title="Link to this heading"></a></h1>
+<p>Computes Coarse-Grained (CG) properties from Fine-Grained (FG) simulation data for an entire system.</p>
+<p>This class is designed to handle multiple molecule types and calculate CG properties, such as centroids and forces, for all molecules present in the simulation. It supports operations on the entire system, making it suitable for analyses that require a global perspective of the simulation data.</p>
+<section id="id3">
+<h2>Attributes<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topology</span></code> (str): Path to the topology file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trajectory</span></code> (str): Path to the trajectory file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">system_top</span></code> (dict): A dictionary representing the system’s topology, including information about molecules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">molecules</span></code> (list): A list containing dictionaries for each molecule type in the system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">universe</span></code> (MDAnalysis.Universe): The Universe object containing loaded simulation data.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>Methods<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">topology,</span> <span class="pre">trajectory,</span> <span class="pre">system_top,</span> <span class="pre">begin_frame_id=None,</span> <span class="pre">end_frame_id=None,</span> <span class="pre">skip_frames=None)</span></code>: Constructor to initialize the class with simulation and system topology data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_num_frames(self)</span></code>: Returns the number of frames in the trajectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_centroid(self,</span> <span class="pre">atom_group)</span></code>: Computes the centroid (center of mass) for a given atom group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_all_fg_group_force(self,</span> <span class="pre">fg_resname_list=None,</span> <span class="pre">frame_id=0)</span></code>: Computes the forces acting on all FG groups within the system for a specified frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_cg_coord_from_fg(self,</span> <span class="pre">save_file='cg.gro',</span> <span class="pre">fg_resname_list=None,</span> <span class="pre">save_molecule_list=None,</span> <span class="pre">frame_id=-1,</span> <span class="pre">method='com',</span> <span class="pre">cg_wrap=False)</span></code>: Saves the CG coordinates derived from FG data to a file.</p>
+<blockquote>
+<div><p>Explanation of Parameters:
+- <code class="docutils literal notranslate"><span class="pre">save_file</span></code> (str, optional): The name of the file to save the CG coordinates to. Default is ‘cg.gro’.
+- <code class="docutils literal notranslate"><span class="pre">fg_resname_list</span></code> (list of str, optional): A list of residue names to use instead of molecule names. Default is None.
+- <code class="docutils literal notranslate"><span class="pre">save_molecule_list</span></code> (list of int, optional): A list of indices specifying which molecules to save. Default is None (save all).
+- <code class="docutils literal notranslate"><span class="pre">frame_id</span></code> (int, optional): The frame index from which to save the CG coordinates. Default is -1 (last frame).
+- <code class="docutils literal notranslate"><span class="pre">method</span></code> (str, optional): The method to compute CG coordinates (‘com’ for center of mass, ‘cog’ for center of geometry). Default is ‘com’.
+- <code class="docutils literal notranslate"><span class="pre">cg_wrap</span></code> (bool, optional): Whether to wrap the coordinates back into the simulation box. Default is False.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h2>Example Usage<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>This example demonstrates how to use the ComputeCGPropertiesFromFGSimulation_All module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">AMOFMS</span> <span class="kn">import</span> <span class="n">ComputeCGPropertiesFromFGSimulation</span>
+
+<span class="n">system</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;molecules&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;mol_name&#39;</span><span class="p">:</span> <span class="s1">&#39;12oh&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;charge&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">57.1146</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">59.0869</span><span class="p">],</span>
+                         <span class="s1">&#39;aa_groups&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+                                       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
+                                       <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">]],</span>
+                         <span class="s1">&#39;lj_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span>
+                                           <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+                         <span class="s1">&#39;bond_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">]},</span>
+                         <span class="s1">&#39;angle_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">]},</span> <span class="s1">&#39;num_mols&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+                        <span class="p">{</span><span class="s1">&#39;mol_name&#39;</span><span class="p">:</span> <span class="s1">&#39;16oh&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;charge&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">57.1146</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">56.1067</span><span class="p">,</span> <span class="mf">59.0869</span><span class="p">],</span>
+                         <span class="s1">&#39;aa_groups&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span>
+                                       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">],</span>
+                                       <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span>
+                                       <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">47</span><span class="p">]],</span>
+                         <span class="s1">&#39;lj_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span>
+                                           <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+                         <span class="s1">&#39;bond_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">1250.0</span><span class="p">]},</span>
+                         <span class="s1">&#39;angle_parameters&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="mf">180.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">]},</span> <span class="s1">&#39;num_mols&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}],</span>
+          <span class="s1">&#39;lj_cross_terms&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">):</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">]},</span>
+          <span class="s1">&#39;cgmodel&#39;</span><span class="p">:</span> <span class="s1">&#39;MARTINI2&#39;</span><span class="p">}</span>
+
+<span class="n">traj2</span> <span class="o">=</span> <span class="s1">&#39;/home/xiaoyedi/data/work/research/ML&amp;DL/Autopara_CG/program/src/mapping_test/AA/force_match/simulation.trr&#39;</span>
+<span class="n">top2</span> <span class="o">=</span> <span class="s1">&#39;/home/xiaoyedi/data/work/research/ML&amp;DL/Autopara_CG/program/src/mapping_test/AA/force_match/simulation.tpr&#39;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">extrat_cg_force_all</span><span class="p">(</span><span class="n">topology</span><span class="o">=</span><span class="n">top2</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">=</span><span class="n">traj2</span><span class="p">,</span> <span class="n">system_top</span><span class="o">=</span><span class="n">system</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">computation</span> <span class="o">=</span> <span class="n">ComputeCGPropertiesFromFGSimulation_All</span><span class="p">(</span><span class="n">topology</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">=</span><span class="n">traj</span><span class="p">,</span> <span class="n">system_top</span><span class="o">=</span><span class="n">system</span><span class="p">)</span>
+<span class="n">computation</span><span class="o">.</span><span class="n">compute_all_fg_group_force</span><span class="p">(</span><span class="n">frame_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">computation</span><span class="o">.</span><span class="n">save_cg_coord_from_fg</span><span class="p">(</span><span class="n">save_file</span><span class="o">=</span><span class="s1">&#39;cg.gro&#39;</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../CGPropertiesFromFGSimulation.html" class="btn btn-neutral float-left" title="CGPropertiesFromFGSimulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ObjectiveFunction.html" class="btn btn-neutral float-right" title="ObjectiveFunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jiang Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
