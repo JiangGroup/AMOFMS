@@ -1,7 +1,7 @@
 1. Determine Coarse-Grained Force Field
 ---------------------------------------
 
-For your research system, determine the type of coarse-grained (CG) force field to optimize. AMOFMS currently supports `MARTINI2 <http://md.chem.rug.nl/index.php>`__, `MARTINI3 <http://md.chem.rug.nl/index.php>`__, and `SPICA <https://www.spica-ff.org/>`__ CG force fields.
+For your research system, determine the type of coarse-grained (CG) force field to optimize. AMOFMS currently supports `MARTINI2 <https://cgmartini.nl>`__, `MARTINI3 <https://cgmartini.nl>`__, and `SPICA <https://www.spica-ff.org/>`__ CG force fields.
 
 .. note::
 

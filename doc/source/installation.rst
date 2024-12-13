@@ -28,7 +28,7 @@ Index <https://pypi.org/>`__. You can do this using `pip`::
 
 Alternatively, you can also install the in-development version with::
 
-    pip install https://github.com/dropletsimuli/amofms/archive/main.zip
+    pip install https://github.com/JiangGroup/AMOFMS/archive/main.zip
 
 Dependencies
 ------------
