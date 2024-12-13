@@ -28,7 +28,7 @@ BibTeX entry:
       year = {2024},
       publisher = {GitHub},
       journal = {GitHub repository},
-      howpublished = {\\url{https://github.com/dropletsimuli/amofms}},
+      howpublished = {\\url{https://github.com/JiangGroup/amofms}},
       version = {0.1.0}
     }
 

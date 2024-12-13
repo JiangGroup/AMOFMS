@@ -1,7 +1,7 @@
 POPC
 ====
 
-1-palmitoyl-2-oleoylphosphatidylcholine (POPC) is a phospholipid commonly used in biomolecular simulations due to its prevalence in biological membranes. Optimizing its parameters is crucial for accurately representing its behavior in molecular dynamics simulations. (Full scripts used in this example can be found in `here </home/xiaoyedi/data/work/research/ML_DL/Autopara_CG/program/package_log/repository_test/doc/source/example/POPC>`_.)
+1-palmitoyl-2-oleoylphosphatidylcholine (POPC) is a phospholipid commonly used in biomolecular simulations due to its prevalence in biological membranes. Optimizing its parameters is crucial for accurately representing its behavior in molecular dynamics simulations. (Full scripts used in this example can be found in `here <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC>`_.)
 
 Optimization Objective
 -----------------------

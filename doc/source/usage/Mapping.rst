@@ -14,12 +14,12 @@ Map the molecules to their coarse-grained representations according to the chose
 
       TP_MARTINI2 --smiles 'CCCCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCC=CCCCCCCCC' --num_bead 12 --json_output ./
       
-this process will generate `mapping result picture (.png) </https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/popc.png>`_ and `mapping result JSON file (.json) <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/popc.json>`_.  
+this process will generate `mapping result picture (.png) <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/popc.png>`_ and `mapping result JSON file (.json) <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/popc.json>`_.  
 
 .. image:: ../example/POPC/popc.png
     :alt: POPC CG Mapping predicted by DSGPM-TP model
 
-**Python Script** (Full script is in `run_mapping.py </https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/run_mapping.py>`_.):
+**Python Script** (Full script is in `run_mapping.py <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/run_mapping.py>`_.):
 
    .. code-block:: python
 
@@ -86,7 +86,7 @@ this process will generate `mapping result picture (.png) </https://github.com/J
       
       system_topology = generate_system_top(mols=all_cg_molecule_top, num_mols=None)
 
-The `opt_settings.py` is in `here </home/xiaoyedi/data/work/research/ML_DL/Autopara_CG/program/package_log/repository_test/doc/source/example/POPC/opt_settings.py>`_. Use the :ref:`generate_system_top` function to convert all molecules to the `system_topology` dictionary format. The `system_topology` can be found in `opt_init_para.py </home/xiaoyedi/data/work/research/ML_DL/Autopara_CG/program/package_log/repository_test/doc/source/example/POPC/opt_init_para.py>`_.
+The `opt_settings.py` is in `here <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/opt_settings.py>`_. Use the :ref:`generate_system_top` function to convert all molecules to the `system_topology` dictionary format. The `system_topology` can be found in `opt_init_para.py <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/POPC/opt_init_para.py>`_.
 
 .. note::
  

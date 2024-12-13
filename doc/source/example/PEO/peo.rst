@@ -1,7 +1,7 @@
 PEO
 ===
 
-Polyethylene oxide (PEO), also known as polyethylene glycol (PEG), is a polymer with a wide range of applications, including in biomaterials, pharmaceuticals, and polymer electrolytes. Understanding its behavior at the molecular level is crucial for optimizing its properties for various applications. (Full scripts used in this example can be found in `here </home/xiaoyedi/data/work/research/ML_DL/Autopara_CG/program/package_log/repository_test/doc/source/example/PEO>`_.)
+Polyethylene oxide (PEO), also known as polyethylene glycol (PEG), is a polymer with a wide range of applications, including in biomaterials, pharmaceuticals, and polymer electrolytes. Understanding its behavior at the molecular level is crucial for optimizing its properties for various applications. (Full scripts used in this example can be found in `here <https://github.com/JiangGroup/AMOFMS/tree/main/doc/source/example/PEO>`_.)
 
 .. note::
 
