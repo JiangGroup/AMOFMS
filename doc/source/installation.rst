@@ -1,27 +1,10 @@
 Installation
 ============
 
-Conda
+PyPI
 -----
 
-The easiest way to install **AMOFMS** is through the `conda-forge
-<https://anaconda.org/conda-forge>`__ channel of `Conda
-<https://docs.conda.io/en/latest/index.html>`__::
-
-    conda config --add channels conda-forge
-    conda create -n amofms -c conda-forge python=3.9 amofms
-    conda activate amofms
-
-This will install **AMOFMS** along with all of its dependencies into a new virtual environment.
-
-If you do not already have Conda installed on your machine, we recommend
-downloading and installing `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`__
---- a lightweight version of Conda.
-
-PyPI
-----
-
-It's also possible to install **AMOFMS** from the `Python Package
+The easiest way to install **AMOFMS** from the `Python Package
 Index <https://pypi.org/>`__. You can do this using `pip`::
 
     pip install amofms

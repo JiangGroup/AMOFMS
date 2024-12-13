@@ -11,7 +11,6 @@ AMOFMS
 
 |mdanalysis|
 |gromacs|
-|conda|
 |pypi|
 |docs|
 |supported-versions|
@@ -26,10 +25,6 @@ AMOFMS
 .. |gromacs| image:: https://img.shields.io/badge/simulation%20with-GROMACS-orange.svg
     :alt: Powered by GROMACS
     :target: https://gromacs.org
-
-.. |conda| image:: https://img.shields.io/badge/conda--forge-v0.11.0-orange
-    :alt: Conda-fogre latest release
-    :target: https://anaconda.org/conda-forge/amofms
 
 .. |pypi| image:: https://img.shields.io/badge/pypi-v0.11.0-orange
     :alt: PyPI Package latest release
@@ -59,22 +54,14 @@ Overview
 Installation
 ============
 
-1. The easiest way to install **AMOFMS** along with its dependencies is through the `conda-forge
-<https://anaconda.org/conda-forge>`__ channel of `Conda
-<https://docs.conda.io/en/latest/index.html>`__::
-
-    conda config --add channels conda-forge
-    conda create -n amofms -c conda-forge python=3.9 amofms
-    conda activate amofms
-
-2. It's also possible to install **AMOFMS** from the `Python Package
+The easiest way to install **AMOFMS** from the `Python Package
 Index <https://pypi.org/>`__. You can do this using `pip`::
 
     pip install amofms
 
 Alternatively, you can also install the in-development version with::
 
-    pip install https://github.com/dropletsimuli/amofms/archive/main.zip
+    pip install https://github.com/JiangGroup/amofms/archive/main.zip
 
 
 Citing
