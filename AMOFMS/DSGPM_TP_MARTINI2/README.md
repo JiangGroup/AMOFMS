@@ -56,7 +56,7 @@ cgloss=0.01
 mkdir ./ckpt/${cgloss}
 mkdir ./tb_log/${cgloss}
 
-CUDA_VISIBLE_DEVICES=0 python ./train.py --data_root ../MARTINI_Dataset --epoch 500 --batch_size 32 --ckpt ./ckpt/${cgloss}  --num_workers 4 --tb_root  ./tb_log/${cgloss} --tb_log --title cgloss_${cgloss} --cg_type_loss_parameter ${cgloss} --no_charge_feat --no_aromatic_feat 
+CUDA_VISIBLE_DEVICES=0 python ./train.py --data_root ./MARTINI_Dataset --epoch 500 --batch_size 32 --ckpt ./ckpt/${cgloss}  --num_workers 4 --tb_root  ./tb_log/${cgloss} --tb_log --title cgloss_${cgloss} --cg_type_loss_parameter ${cgloss} --no_charge_feat --no_aromatic_feat 
 ```
 
 ## Prediction

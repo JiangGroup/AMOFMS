@@ -1,0 +1,16 @@
+CCCCCCCCOCCOCCOCCOCCOCCO
+python convert_to_json.py --smiles smiles.dat  --cg_groups '0,1,2,3;4,5,6;7,8,9;10,11,12;13,14,15;16,17,18;19,20,21;22,23,24;25,26,27' --cg_types "C1;C1;C1;SNA;SNA;SNA;SNA;SNA;SP2" --ref "https://pubs.acs.org/doi/10.1021/la203055t"
+
+CCCCCCCCCCCCOCCOCCOCCOCCOCCO
+python convert_to_json.py --smiles smiles.dat  --cg_groups '0,1,2,3;4,5,6,7;8,9,10;11,12,13;14,15,16;17,18,19;20,21,22;23,24,25;26,27,28;29,30,31' --cg_types "C1;C1;C1;C1;SNA;SNA;SNA;SNA;SNA;SP2" --ref "https://pubs.acs.org/doi/10.1021/la203055t"
+
+CCCCCCCCOC1C(C(C(C(O1)CO)O)O)O
+python convert_to_json.py --smiles smiles.dat  --cg_groups '0,1,2,3;4,5,6,7;8,9,10,19;11,12,17,18;13,14,15,16'  --cg_types "C1;C1;P2;P4;P1" --rel 0.5
+
+CCCCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCCCCCCCCC
+python convert_to_json.py --smiles smiles.dat  --cg_groups '0,1,2,3;4,5,6,7;8,9,10,11;12,13,14;15,16,17,18;20,21,22,23,24,25;26,27,28,29,30,31;19,32,33,34;35,36,37;38,39,40,41;42,43,44,45;46,47,48,49' --cg_types "C1;C1;C1;C1;NA;QA;Q0;NA;C1;C1;C1;C1" --ref "http://cgmartini.nl/index.php/force-field-parameters/lipids"
+
+CCCCCCCCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCCCCCCCCCCCCC
+python convert_to_json.py --smiles smiles.dat  --cg_groups '0,1,2,3;4,5,6,7;8,9,10,11;12,13,14,15;16,17,18;19,20,21,22;24,25,26,27,28,29;30,31,32,33,34,35;23,36,37,38;39,40,41;42,43,44,45;46,47,48,49;50,51,52,53;54,55,56,57' --cg
+_types "C1;C1;C1;C1;C1;NA;QA;Q0;NA;C1;C1;C1;C1;C1" --ref "http://cgmartini.nl/index.php/force-field-parameters/lipids"
+
