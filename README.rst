@@ -74,7 +74,7 @@ Citing
 
 If you use AMOFMS in your research, please cite it as follows:
 
-Zhixuan Zhong, Lifeng Xu, Jian Jiang*. A Neural-Network-Based Mapping and Optimization Framework for High-Precision Coarse-Grained Simulation. 2024.
+Zhixuan Zhong, Lifeng Xu, and Jian Jiang*. A Neural-Network-Based Mapping and Optimization Framework for High-Precision Coarse-Grained Simulation. Journal of Chemical Theory and Computation Article ASAP.
 
 BibTeX entry:
 
