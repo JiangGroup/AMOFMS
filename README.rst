@@ -79,15 +79,17 @@ Zhixuan Zhong, Lifeng Xu, Jian Jiang*. A Neural-Network-Based Mapping and Optimi
 BibTeX entry:
 
 .. code-block:: bibtex
-
-    @software{2024amofms,
-      author = {Zhixuan Zhong},
-      title = {AMOFMS: Automated Mapping and Optimization Framework for Molecular Simulation},
-      year = {2024},
-      publisher = {GitHub},
-      journal = {GitHub repository},
-      url = {{https://github.com/JiangGroup/amofms}},
-      version = {0.1.0}
+    
+    @article{doi:10.1021/acs.jctc.4c01466,
+    author = {Zhong, Zhixuan and Xu, Lifeng and Jiang, Jian},
+    title = {A Neural-Network-Based Mapping and Optimization Framework for High-Precision Coarse-Grained Simulation},
+    journal = {Journal of Chemical Theory and Computation},
+    volume = {0},
+    number = {0},
+    pages = {null},
+    year = {0},
+    doi = {10.1021/acs.jctc.4c01466},
+    note ={PMID: 39782000}
     }
 
 Please also cite `MDAnalysis <https://www.mdanalysis.org/pages/citations/>`__, on which **AMOFMS** is built.
