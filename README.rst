@@ -43,7 +43,7 @@ AMOFMS
     :alt: License **AMOFMS** is free software licensed under the MIT License.
     :target: https://github.com/dropletsimuli/amofms/LICENSE
     
-.. |doi| image:: https://img.shields.io/badge/DOI-red.svg
+.. |doi| image:: https://img.shields.io/badge/DOI-10.1021/acs.jctc.4c01466-red.svg
     :alt: publication doi
     :target: https://doi.org/10.1021/acs.jctc.4c01466
     
